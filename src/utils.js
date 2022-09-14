@@ -2,6 +2,7 @@
 
 export const getRandomInteger = (min, max) => {
   const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+
   return randomInteger;
 };
 
@@ -15,5 +16,18 @@ export const gcd = (a, b) => {
       return largestDivisor;
     }
   }
+
   return 1;
+};
+
+// Progression generation
+
+export const progressionGeneration = (seed, step, lengthOfProgression) => {
+  const progression = [seed];
+
+  for (let index = 1; index < lengthOfProgression; index += 1) {
+    progression.push(progression[index - 1] + step);
+  }
+
+  return progression;
 };
