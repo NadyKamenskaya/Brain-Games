@@ -6,3 +6,4 @@
 ### Asciinemas:
 - [_**Asciinema of game 'brain-even'**_](https://asciinema.org/a/4SlLUQGbjUhWYVpnYHw2gql1R)
 - [_**Asciinema of game 'brain-calc'**_](https://asciinema.org/a/YT6MSnthxOiWhgfqmoYHaYvXL)
+- [_**Asciinema of game 'brain-gcd'**_](https://asciinema.org/a/fiRjJzMSnUGDeh2AOiBzP0mpy)
