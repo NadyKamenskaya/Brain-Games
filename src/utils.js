@@ -54,13 +54,15 @@ export const isEven = (number) => number % 2 === 0;
 
 export const calculateExpression = (expression) => {
   const [a, sign, b] = expression.split(' ');
+  const numberA = Number(a);
+  const numberB = Number(b);
   switch (sign) {
     case '+':
-      return a + b;
+      return numberA + numberB;
     case '-':
-      return a - b;
+      return numberA - numberB;
     case '*':
-      return a * b;
+      return numberA * numberB;
     default:
       return undefined;
   }
