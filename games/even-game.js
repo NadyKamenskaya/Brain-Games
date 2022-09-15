@@ -1,5 +1,5 @@
 import { cons } from '@hexlet/pairs';
-import getRandomInteger from '../src/utils.js';
+import { getRandomInteger, isEven } from '../src/utils.js';
 import gameEngine from '../src/index.js';
 
 const gameLaunch = () => {
@@ -8,7 +8,7 @@ const gameLaunch = () => {
 
   for (let i = 0; i < 3; i += 1) {
     const question = getRandomInteger(1, 100);
-    const answer = (question % 2 === 0) ? 'yes' : 'no';
+    const answer = isEven(question) ? 'yes' : 'no';
     const pair = cons(question, answer);
     questionAnswer.push(pair);
   }

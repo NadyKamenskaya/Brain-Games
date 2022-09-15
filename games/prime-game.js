@@ -10,7 +10,7 @@ const gameLaunch = () => {
     const number = getRandomInteger(0, 100);
 
     const question = `${number}`;
-    const answer = isPrimeNumber(number);
+    const answer = isPrimeNumber(number) ? 'yes' : 'no';
 
     const pair = cons(question, answer);
     questionAnswer.push(pair);

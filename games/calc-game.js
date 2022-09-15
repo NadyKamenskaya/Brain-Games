@@ -1,5 +1,5 @@
 import { cons } from '@hexlet/pairs';
-import getRandomInteger from '../src/utils.js';
+import { getRandomInteger, calculateExpression } from '../src/utils.js';
 import gameEngine from '../src/index.js';
 
 const gameLaunch = () => {
@@ -12,21 +12,7 @@ const gameLaunch = () => {
     const secondNumber = getRandomInteger(1, 100);
     const sign = signArray[getRandomInteger(0, 2)];
     const question = `${firstNumber} ${sign} ${secondNumber}`;
-    let answer = 0;
-
-    switch (sign) {
-      case '+':
-        answer = firstNumber + secondNumber;
-        break;
-      case '-':
-        answer = firstNumber - secondNumber;
-        break;
-      case '*':
-        answer = firstNumber * secondNumber;
-        break;
-      default:
-        break;
-    }
+    const answer = calculateExpression(question);
 
     const pair = cons(question, answer);
     questionAnswer.push(pair);

@@ -35,13 +35,33 @@ export const progressionGeneration = (seed, step, lengthOfProgression) => {
 // Prime number
 
 export const isPrimeNumber = (number) => {
-  if (number < 2) return 'no';
+  if (number < 2) return false;
 
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
   }
 
-  return 'yes';
+  return true;
+};
+
+// Finding an even number
+
+export const isEven = (number) => number % 2 === 0;
+
+// Calculate Expression
+
+export const calculateExpression = (expression) => {
+  const [a, sign, b] = expression.split(' ');
+  switch (sign) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      return undefined;
+  }
 };
