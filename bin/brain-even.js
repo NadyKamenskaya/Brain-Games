@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import gameLaunch from '../games/even-game.js';
+import launchGame from '../src/games/even-game.js';
 
-gameLaunch();
+launchGame();

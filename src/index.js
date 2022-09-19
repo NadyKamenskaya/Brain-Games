@@ -12,9 +12,9 @@ const greeting = () => {
 
 // The logical part of the games
 
-const gameEngine = (gameRules, questionAnswer) => {
+const startGameEngine = (ruleGame, questionAnswer) => {
   const name = greeting();
-  console.log(gameRules);
+  console.log(ruleGame);
 
   for (let i = 0; i < questionAnswer.length; i += 1) {
     const question = car(questionAnswer[i]);
@@ -23,7 +23,7 @@ const gameEngine = (gameRules, questionAnswer) => {
     const answer = readlineSync.question('Your answer: ');
 
     if (String(correctAnswer) !== answer.toLowerCase()) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`);
       return;
     }
 
@@ -33,4 +33,4 @@ const gameEngine = (gameRules, questionAnswer) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export default gameEngine;
+export default startGameEngine;
