@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomInteger from '../utils.js';
-import startGameEngine from '../index.js';
+import { startGameEngine, roundsCount } from '../index.js';
 
 // Calculate Expression
 
@@ -13,17 +13,16 @@ const calculateExpression = (firstNumber, sign, secondNumber) => {
     case '*':
       return firstNumber * secondNumber;
     default:
-      throw new Error(`Unknown order state: '${sign}'!`);
+      throw new Error(`Unknown expression operator: '${sign}'!`);
   }
 };
 
 // Launch Game
 
 const launchGame = () => {
-  const ruleGame = 'What is the result of the expression?';
-  const questionAnswer = [];
+  const description = 'What is the result of the expression?';
+  const rounds = [];
   const signArray = ['+', '-', '*'];
-  const roundsCount = 3;
 
   for (let i = 0; i < roundsCount; i += 1) {
     const firstNumber = Number(getRandomInteger(1, 100));
@@ -33,10 +32,10 @@ const launchGame = () => {
     const answer = calculateExpression(firstNumber, sign, secondNumber);
 
     const pair = cons(question, answer);
-    questionAnswer.push(pair);
+    rounds.push(pair);
   }
 
-  startGameEngine(ruleGame, questionAnswer);
+  startGameEngine(description, rounds);
 };
 
 export default launchGame;

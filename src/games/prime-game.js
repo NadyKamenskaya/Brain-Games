@@ -1,11 +1,13 @@
 import { cons } from '@hexlet/pairs';
 import getRandomInteger from '../utils.js';
-import startGameEngine from '../index.js';
+import { startGameEngine, roundsCount } from '../index.js';
 
 // Prime number
 
 const isPrimeNumber = (number) => {
-  if (number < 2) return false;
+  if (number < 2) {
+    return false;
+  }
 
   for (let i = 2; i < number; i += 1) {
     if (number % i === 0) {
@@ -19,9 +21,8 @@ const isPrimeNumber = (number) => {
 // Launch Game
 
 const launchGame = () => {
-  const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const questionAnswer = [];
-  const roundsCount = 3;
+  const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
     const number = getRandomInteger(0, 100);
@@ -30,10 +31,10 @@ const launchGame = () => {
     const answer = isPrimeNumber(number) ? 'yes' : 'no';
 
     const pair = cons(question, answer);
-    questionAnswer.push(pair);
+    rounds.push(pair);
   }
 
-  startGameEngine(ruleGame, questionAnswer);
+  startGameEngine(description, rounds);
 };
 
 export default launchGame;

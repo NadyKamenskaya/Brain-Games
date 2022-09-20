@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomInteger from '../utils.js';
-import startGameEngine from '../index.js';
+import { startGameEngine, roundsCount } from '../index.js';
 
 // Finding the Greatest Common Divisor
 
@@ -19,9 +19,8 @@ const getGreatestCommonDivisor = (firstNumber, secondNumber) => {
 // Launch Game
 
 const launchGame = () => {
-  const ruleGame = 'Find the greatest common divisor of given numbers.';
-  const questionAnswer = [];
-  const roundsCount = 3;
+  const description = 'Find the greatest common divisor of given numbers.';
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
     const firstNumber = getRandomInteger(1, 100);
@@ -29,10 +28,10 @@ const launchGame = () => {
     const question = `${firstNumber} ${secondNumber}`;
     const answer = getGreatestCommonDivisor(firstNumber, secondNumber);
     const pair = cons(question, answer);
-    questionAnswer.push(pair);
+    rounds.push(pair);
   }
 
-  startGameEngine(ruleGame, questionAnswer);
+  startGameEngine(description, rounds);
 };
 
 export default launchGame;

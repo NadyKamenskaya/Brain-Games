@@ -1,6 +1,10 @@
 import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
+// Number of rounds
+
+export const roundsCount = 3;
+
 // User greeting
 
 const greeting = () => {
@@ -12,13 +16,13 @@ const greeting = () => {
 
 // The logical part of the games
 
-const startGameEngine = (ruleGame, questionAnswer) => {
+export const startGameEngine = (description, rounds) => {
   const name = greeting();
-  console.log(ruleGame);
+  console.log(description);
 
-  for (let i = 0; i < questionAnswer.length; i += 1) {
-    const question = car(questionAnswer[i]);
-    const correctAnswer = cdr(questionAnswer[i]);
+  for (let i = 0; i < rounds.length; i += 1) {
+    const question = car(rounds[i]);
+    const correctAnswer = cdr(rounds[i]);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
@@ -32,5 +36,3 @@ const startGameEngine = (ruleGame, questionAnswer) => {
 
   console.log(`Congratulations, ${name}!`);
 };
-
-export default startGameEngine;

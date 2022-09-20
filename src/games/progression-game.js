@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import getRandomInteger from '../utils.js';
-import startGameEngine from '../index.js';
+import { startGameEngine, roundsCount } from '../index.js';
 
 // Progression generation
 
@@ -17,9 +17,8 @@ const generateProgression = (seed, step, lengthOfProgression) => {
 // Launch Game
 
 const launchGame = () => {
-  const ruleGame = 'What number is missing in the progression?';
-  const questionAnswer = [];
-  const roundsCount = 3;
+  const description = 'What number is missing in the progression?';
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
     const seed = getRandomInteger(0, 100);
@@ -31,13 +30,13 @@ const launchGame = () => {
     const answer = progression[maskIndex];
     progression[maskIndex] = '..';
 
-    const question = `${progression.join(' ')}`;
+    const question = progression.join(' ');
 
     const pair = cons(question, answer);
-    questionAnswer.push(pair);
+    rounds.push(pair);
   }
 
-  startGameEngine(ruleGame, questionAnswer);
+  startGameEngine(description, rounds);
 };
 
 export default launchGame;
